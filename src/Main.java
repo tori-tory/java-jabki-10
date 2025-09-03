@@ -29,7 +29,7 @@ public class Main {
             try {
                 Main.nullString(s);
             } catch (IllegalArgumentException e) {
-                System.out.println("Ошибка. Строка пуста или состоит только из пробелов");
+                System.out.println(e.getMessage());
             }
         }
 
@@ -181,8 +181,8 @@ public class Main {
      * если строка пуста или состоит только из пробелов
      */
     public static void nullString(String str) {
-        if (str.trim().isEmpty()) {
-            throw new IllegalArgumentException();
+        if (str == null || str.trim().isEmpty()) {
+            throw new IllegalArgumentException("Ошибка. Строка пуста или состоит только из пробелов");
         }
     }
 

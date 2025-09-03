@@ -29,7 +29,9 @@ class MainTest {
 
     @Test
     public void testNullStringThrows() {
-        Assertions.assertThrows(IllegalArgumentException.class,  () -> Main.nullString(" "));
+        Assertions.assertThrows(IllegalArgumentException.class,  () -> Main.nullString(null));
+        Assertions.assertThrows(IllegalArgumentException.class,  () -> Main.nullString(""));
+        Assertions.assertThrows(IllegalArgumentException.class,  () -> Main.nullString("   "));
     }
 
     @Test
