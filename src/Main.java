@@ -226,7 +226,7 @@ public class Main {
      */
     public static void deposit(double amount) throws NegativeDepositException {
         if (amount < 0) {
-            throw new NegativeDepositException("Ошибка. Сумма не может быть отрицательной");
+            throw new NegativeDepositException();
         }
 
         System.out.printf("Успех. Сумма %s обработана\n", amount);
@@ -241,7 +241,7 @@ public class Main {
     public static String getItem(String code) {
         nullString(code);
         if (!items.containsKey(code)) {
-            throw new ItemNotFoundException("Ошибка. Код \"" + code + "\" не найден в карте товаров");
+            throw new ItemNotFoundException();
         }
 
         return items.get(code);
@@ -274,7 +274,7 @@ public class Main {
      */
     public static void login(String username, String password) throws LoginFailedException {
         if (!logins.containsKey(username) || !logins.get(username).equals(password)) {
-            throw new LoginFailedException("Ошибка. Имя и/или пароль не совпадают");
+            throw new LoginFailedException();
         }
     }
 
@@ -289,11 +289,11 @@ public class Main {
         throws InvalidTransferAmountException, InsufficientBalanceException {
 
         if (amount <= 0) {
-            throw new InvalidTransferAmountException("InvalidTransferAmountException");
+            throw new InvalidTransferAmountException();
         }
 
         if (accounts.get(fromAccount).compareTo(BigDecimal.valueOf(amount)) < 0) {
-            throw new InsufficientBalanceException("Ошибка. Баланс отправителя меньше суммы " + amount);
+            throw new InsufficientBalanceException();
         }
 
         accounts.put(fromAccount, accounts.get(fromAccount).subtract(BigDecimal.valueOf(amount)));

@@ -102,7 +102,7 @@ class MainTest {
                 ItemNotFoundException.class,
                 () -> Main.getItem("101")
         );
-        Assertions.assertEquals("Ошибка. Код \"101\" не найден в карте товаров", ex.getMessage());
+        Assertions.assertEquals("Ошибка. Код не найден в карте товаров", ex.getMessage());
     }
 
     @Test

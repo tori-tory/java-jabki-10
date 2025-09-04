@@ -1,7 +1,7 @@
 package exceptions;
 
 public class LoginFailedException extends Exception{
-    public LoginFailedException(String message) {
-        super(message);
+    public LoginFailedException() {
+        super("Ошибка. Имя и/или пароль не совпадают");
     }
 }

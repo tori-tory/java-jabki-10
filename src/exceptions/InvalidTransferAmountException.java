@@ -1,7 +1,7 @@
 package exceptions;
 
 public class InvalidTransferAmountException extends Exception {
-    public InvalidTransferAmountException(String message) {
-        super(message);
+    public InvalidTransferAmountException() {
+        super("Ошибка. Сумма перевода должна быть больше 0");
     }
 }
