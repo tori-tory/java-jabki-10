@@ -165,12 +165,15 @@ public class Main {
      * Напишите метод safeDivide(int a, int b), который возвращает a / b.
      * Если b == 0, перехватите исключение и выведите сообщение: "Деление на ноль запрещено".
      */
-    public static long safeDivide(int a, int b) {
+    public static double safeDivide(int a, int b) {
         try {
-            return (long) a / b;
+            if (b == 0) {
+                throw new ArithmeticException("Деление на ноль запрещено");
+            }
+            return (double) a / b;
         }
         catch (ArithmeticException e) {
-            System.out.println("Ошибка. Деление на ноль запрещено");
+            System.out.println(e.getMessage());
             return b;
         }
     }
@@ -310,7 +313,7 @@ public class Main {
         try {
             int rate = Integer.parseInt(rating);
             if ((rate < 1) || (rate > 5)) {
-                throw new InvalidRatingException("Ошибка. Значение вне диапазона");
+                throw new InvalidRatingException();
             }
 
             products.computeIfAbsent(product, k -> new ArrayList<>()).add(rate);

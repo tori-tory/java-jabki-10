@@ -18,8 +18,8 @@ class MainTest {
     @Test
     public void testSafeDivide() {
         Assertions.assertEquals(2.0, Main.safeDivide(10, 5));
-        Assertions.assertEquals(0, Main.safeDivide(5, 0));
-        Assertions.assertEquals(2147483648L, Main.safeDivide(Integer.MIN_VALUE,-1));
+        Assertions.assertEquals(0.0, Main.safeDivide(5, 0));
+        Assertions.assertEquals(2147483648D, Main.safeDivide(Integer.MIN_VALUE,-1));
     }
 
     @Test
@@ -160,7 +160,7 @@ class MainTest {
                 InvalidRatingException.class,
                 () -> Main.rateProduct("Parmalat","100")
         );
-        Assertions.assertEquals("Ошибка. Значение вне диапазона", e.getMessage());
+        Assertions.assertEquals("Ошибка. Задайте числовое значение от 1 до 5", e.getMessage());
         Assertions.assertTrue(Main.products.get("Parmalat").isEmpty());
     }
 
